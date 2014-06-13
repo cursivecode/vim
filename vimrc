@@ -53,6 +53,7 @@
     set cursorline "Highlights current line
     set ttyfast "redraw with more characters - speed
     set ruler "cursor position
+    set mouse=a "enable mouse support
     filetype off  "added from vundle instructions
     "set relativenumber "Show how many lines away from current - Easy Motion instead
 
@@ -71,7 +72,10 @@
     " git repos on your local machine (i.e. when working on your own plugin) - Plugin 'file:///home/gmarik/path/to/plugin'
     "
     Plugin 'gmarik/Vundle.vim' " let Vundle manage Vundle, required
-    Plugin 'Shougo/unite.vim.git' " Unite Plugin
+    Plugin 'Shougo/unite.vim.git' 
+    Plugin 'wookiehangover/jshint.vim' 
+    Plugin 'Valloric/YouCompleteMe'
+    Plugin 'fatih/vim-go'
 
 
   " All of your Plugins must be added before the following line
@@ -86,20 +90,17 @@
     au FocusLost * :wa
 
   " Change <leader> key
-    let mapleader=","
+    let mapleader="\<Space>"
 
   " Quickly edit/source vimrc file
     nmap <silent> <leader>ev :e $MYVIMRC<CR>
     nmap <silent> <leader>sv :source $MYVIMRC<CR>
 
-  " Changes commands like :w to use ;w keys
-    nnoremap ; :
-
   " TComment
     nmap <leader>c <C-_><C-_> ":TComment
 
   " Clearing highlighted searches
-    nmap <silent> ,/ :nohlsearch<CR>
+    nmap <silent> <leader>/ :nohlsearch<CR>
 
   " Sudo after file is already open
     cmap w!! w !sudo tee % >/dev/null
